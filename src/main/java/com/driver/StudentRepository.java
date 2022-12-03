@@ -50,7 +50,7 @@ public class StudentRepository {
 
     public List<String> getStudentsByTeacherNameFromDB(String name) {
         for(Teacher teacher : ListOfTeachersInDB.keySet()){
-            if(Objects.equals(teacher.getName(),teacher)){
+            if(Objects.equals(teacher.getName(),name)){
                 return ListOfTeachersInDB.get(teacher);
             }
         }

@@ -33,6 +33,7 @@ public class StudentService {
     }
 
     public List<String> getAllStudentsByTeacherName(String teacher) {
+
         return studentRepository.getStudentsByTeacherNameFromDB(teacher);
     }
 

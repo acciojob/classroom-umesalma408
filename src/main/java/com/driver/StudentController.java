@@ -33,7 +33,7 @@ StudentService studentService;
     }
 
     @PutMapping("/add-student-teacher-pair")
-    public ResponseEntity<String> addStudentTeacherPair(@RequestParam String student, @RequestParam String teacher){
+    public ResponseEntity<String> addStudentTeacherPair(@RequestParam("sName") String student, @RequestParam("tName") String teacher){
         studentService.addAllStudentTeacherPairToDB(student,teacher);
 
         return new ResponseEntity<>("New student-teacher pair added successfully", HttpStatus.CREATED);
@@ -54,7 +54,7 @@ StudentService studentService;
     }
 
     @GetMapping("/get-students-by-teacher-name/{teacher}")
-    public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable("teacher")String teacher){
+    public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable("teacher") String teacher){
         //List<String> students = null; // Assign list of student by calling service layer method
 
         return new ResponseEntity<>(studentService.getAllStudentsByTeacherName(teacher), HttpStatus.CREATED);
