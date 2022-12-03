@@ -22,13 +22,13 @@ public class StudentController {
 StudentService studentService;
     @PostMapping("/add-student")
     public ResponseEntity<String> addStudent(@RequestBody Student student){
-
+        studentService.addStudent(student);
         return new ResponseEntity<>("New student added successfully", HttpStatus.CREATED);
     }
 
     @PostMapping("/add-teacher")
     public ResponseEntity<String> addTeacher(@RequestBody Teacher teacher){
-
+        studentService.addTeacher(teacher);
         return new ResponseEntity<>("New teacher added successfully", HttpStatus.CREATED);
     }
 
@@ -41,28 +41,28 @@ StudentService studentService;
 
     @GetMapping("/get-student-by-name/{name}")
     public ResponseEntity<Student> getStudentByName(@PathVariable("name") String name){
-        Student student = null; // Assign student by calling service layer method
+      //  Student student = null; // Assign student by calling service layer method
 
         return new ResponseEntity<>(studentService.getStudentByName(name), HttpStatus.CREATED);
     }
 
     @GetMapping("/get-teacher-by-name/{name}")
     public ResponseEntity<Teacher> getTeacherByName(@PathVariable("name") String name){
-        Teacher teacher = null; // Assign student by calling service layer method
+     //   Teacher teacher = null; // Assign student by calling service layer method
 
         return new ResponseEntity<>(studentService.getAllTeachersByName(name), HttpStatus.CREATED);
     }
 
     @GetMapping("/get-students-by-teacher-name/{teacher}")
     public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable("teacher")String teacher){
-        List<String> students = null; // Assign list of student by calling service layer method
+        //List<String> students = null; // Assign list of student by calling service layer method
 
         return new ResponseEntity<>(studentService.getAllStudentsByTeacherName(teacher), HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-students")
     public ResponseEntity<List<String>> getAllStudents(){
-        List<String> students = null; // Assign list of student by calling service layer method
+       // List<String> students = null; // Assign list of student by calling service layer method
 
         return new ResponseEntity<>(studentService.findAllStudents(), HttpStatus.CREATED);
     }
